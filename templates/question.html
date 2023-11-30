@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %} {% include "flash_messages.html"
+%}
+
+<h1>Question {{ q + 1 }}</h1>
+<form action="{{ url_for('answer') }}" method="POST">
+  <p>{{ question }}</p>
+
+  {% for choice in choices %}
+  <input type="radio" id="{{ choice }}" value="{{ choice }}" name="answer" />
+  <label for="{{ choice }}">{{ choice }}</label>
+  <br />
+  {% endfor %}
+
+  <input type="submit" value="Submit" />
+</form>
+{% endblock %}
